@@ -1,103 +1,76 @@
-# Baseball StatGen Application
+# Baseball Statistics Natural Language Query Interface
 
-A web-based application for generating customizable tables of baseball statistics, similar to Baseball Savant's statistics page.
+🚧 **Project Status: Under Active Development** 🚧
+
+## Overview
+
+This web application allows users to query baseball statistics using natural language. Instead of navigating complex database schemas or learning specific query syntax, users can simply ask questions in plain English, such as:
+
+- "Show me the top 10 batting averages from the 2023 season"
+- "Give me the batting statlines of the top 10 best single seasons by bWar for position players over the past 15 years"
+- "Which pitchers had the highest strikeout rates in the National League last year?"
+
+## How It Works
+
+1. **Natural Language Interface**: Users input their questions through a clean, intuitive web interface
+2. **Query Processing**: The application processes these natural language queries using a model context protocol
+3. **Data Retrieval**: The system queries public baseball databases to fetch relevant statistics
+4. **Results Display**: Data is presented in an interactive table format with sorting, filtering, and export capabilities
+
+## Technical Stack
+
+### Frontend
+- React with TypeScript
+- Material-UI components
+- Interactive data grid for results display
+- CSV export functionality
+
+### Backend
+- Flask Python web framework
+- SQLAlchemy for database management
+- Natural Language Processing pipeline
+- RESTful API endpoints
 
 ## Features
 
-- Dynamic statistic type selection (batting, pitching)
-- Advanced filtering options (date ranges, teams, specific metrics)
-- Head-to-head player comparisons
-- Exportable data tables
-- Real-time data updates from Statcast API
+- ✅ Natural language query processing
+- ✅ Interactive data tables
+- ✅ CSV export functionality
+- ✅ Support for both batting and pitching statistics
+- 🚧 Advanced statistical queries (in development)
+- 🚧 Historical data analysis (in development)
+- 🚧 Player comparison features (planned)
+- 🚧 Visual data representations (planned)
 
-## Tech Stack
+## Getting Started
 
-- Backend: Python/Flask
-- Frontend: React
-- Database: PostgreSQL
-- Caching: Redis
-- Testing: pytest
+### Prerequisites
+- Python 3.8+
+- Node.js 14+
+- PostgreSQL database
 
-## Project Structure
+### Installation
 
-```
-baseballstatsquizgame/
-├── backend/                 # Flask application
-│   ├── app/                # Application package
-│   ├── tests/              # Test suite
-│   └── config.py           # Configuration settings
-├── frontend/               # React application
-│   ├── src/               # Source code
-│   ├── public/            # Static files
-│   └── package.json       # Dependencies
-├── requirements.txt       # Python dependencies
-└── README.md             # This file
-```
+Detailed installation instructions coming soon. The project is currently under development, and setup procedures are being finalized.
 
-## Setup Instructions
+## Development Status
 
-### Backend Setup
+This project is currently under active development. Key areas of ongoing work include:
 
-1. Create a virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. Set up environment variables:
-   ```bash
-   cp .env.example .env
-   # Edit .env with your configuration
-   ```
-
-4. Initialize the database:
-   ```bash
-   flask db upgrade
-   ```
-
-### Frontend Setup
-
-1. Navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Start the development server:
-   ```bash
-   npm start
-   ```
-
-## Development
-
-- Backend runs on http://localhost:5000
-- Frontend runs on http://localhost:3000
-- API documentation available at http://localhost:5000/api/docs
-
-## Testing
-
-Run the test suite:
-```bash
-pytest
-```
+- Expanding the natural language processing capabilities
+- Integrating additional baseball statistics databases
+- Enhancing query accuracy and response time
+- Implementing advanced visualization features
+- Adding more complex statistical analysis capabilities
 
 ## Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+While the project is in early development, we welcome discussions and suggestions. Please feel free to open issues for feature requests or bug reports.
 
 ## License
 
-MIT License 
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
+
+**Note**: This is a development version and features may change. Documentation will be updated as the project evolves. 
