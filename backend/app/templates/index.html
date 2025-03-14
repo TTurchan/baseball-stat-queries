@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baseball Stats API Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 8px 16px;
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Baseball Stats API Test Page</h1>
+    
+    <div class="test-section">
+        <h2>Test Player Search</h2>
+        <input type="text" id="searchInput" placeholder="Enter player name (e.g., Trout)">
+        <button onclick="testSearch()">Search</button>
+        <pre id="searchResult"></pre>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Player Stats</h2>
+        <input type="text" id="playerId" placeholder="Enter player ID">
+        <button onclick="testPlayerStats()">Get Stats</button>
+        <pre id="statsResult"></pre>
+    </div>
+
+    <script>
+        async function testSearch() {
+            const query = document.getElementById('searchInput').value;
+            if (!query) return;
+
+            try {
+                const response = await fetch(`/api/players/search?q=${encodeURIComponent(query)}`);
+                const data = await response.json();
+                document.getElementById('searchResult').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('searchResult').textContent = `Error: ${error.message}`;
+            }
+        }
+
+        async function testPlayerStats() {
+            const playerId = document.getElementById('playerId').value;
+            if (!playerId) return;
+
+            try {
+                const response = await fetch(`/api/stats/player/${playerId}`);
+                const data = await response.json();
+                document.getElementById('statsResult').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('statsResult').textContent = `Error: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html> 

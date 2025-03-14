@@ -10,9 +10,9 @@ class Config:
         'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     
-    # Redis configuration for caching
-    CACHE_TYPE = "RedisCache"
-    CACHE_REDIS_URL = os.environ.get('REDIS_URL') or 'redis://localhost:6379/0'
+    # Cache configuration
+    CACHE_TYPE = "SimpleCache"  # Using simple cache for local development
+    CACHE_DEFAULT_TIMEOUT = 300
     
     # API configuration
     STATCAST_API_KEY = os.environ.get('STATCAST_API_KEY')
